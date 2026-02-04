@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhanuprakash | Personal Assets</title>
+
+<style>
+  /* NAVBAR BASE */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;                 /* 🔥 navbar height increased */
+  background: #020617;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;              /* 🔥 left & right spacing */
+  z-index: 1000;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;   /* logo & text same center line */
+  gap: 14px;
+}
+
+.navbar.scrolled {
+  background: rgba(15, 23, 42, 0.98); /* little lighter */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.logo-img {
+  width: auto;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #38bdf8;
+
+  /* 🔥 IMPORTANT PART */
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* DESKTOP MENU */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 26px;
+  margin: 0;
+  padding-right: 60px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+}
+
+.nav-links li a:hover {
+  color: #38bdf8;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: #020617;
+  border: 1px solid #38bdf8;
+  border-radius: 14px;
+  padding: 10px 0;
+  z-index: 999;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.mobile-menu a:hover {
+  background: rgba(56,189,248,0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* hide desktop menu */
+  }
+
+  .hamburger {
+    display: block; /* show hamburger */
+  }
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  padding-top: 90px;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  margin-top: 90px;
+}
+
+/* ===== ABOUT OUTER BOX ===== */
+.about-box {
+  background: #020617;
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.about-box1 {
+  background: #020617;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+/* Heading */
+.about-box h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #38bdf8;
+}
+
+.about-box1 h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #38bdf8;
+}
+
+/* ===== SLIDER ===== */
+.slider-wrapper {
+  overflow: hidden;
+}
+
+.about-slider {
+  display: flex;
+  transition: transform 0.35s ease;
+}
+
+/* ===== INNER WHITE OVERLAY BOX ===== */
+.about-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.para-box {
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+  padding: 50px;
+  border-radius: 14px;
+  line-height: 1.6;
+  font-size: 16px;
+  border: 1px solid #38bdf8;
+}
+
+/* Swipe text */
+.swipe-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* ===== ASSETS ===== */
+.section {
+  background: #020617;
+  padding: 20px;
+  margin-top: 24px;
+  border-radius: 18px;
+}
+
+.section h3 {
+  margin-top: 0;
+}
+
+.para-box.main-message {
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+}
+
+
+button {
+  margin-top: 10px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #38bdf8;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-left">
+    <img src="https://res.cloudinary.com/dmbkwuksx/image/upload/v1770224518/image_phtfmj.png" alt="Logo" class="logo-img">
+    <span class="logo-text">Bhanuprakash</span>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#assets">Assets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <!-- Mobile Hamburger -->
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#about">About Me</a>
+  <a href="#assets">Assets</a>
+  <a href="#contact">Contact</a>
+</div>
+
+  <!-- ABOUT SECTION -->
+   <div class="about-box1">
+    <h2 class="name-title">Small Request</h2>
+
+    <div class="para-box main-message">
+      Please don’t unfollow after getting assets. Thank you
+    </div>
+   </div>
+
+  <div class="about-box">
+    <h2>About Myself</h2>
+
+    <div class="slider-wrapper" id="sliderWrapper">
+      <div class="about-slider" id="slider">
+
+        <!-- ENGLISH -->
+        <div class="about-slide">
+          <div class="para-box">
+            Hi, my name is Bhanuprakash Sontyana. I am 23 years old and I am from
+            Narsipatnam. I love video editing, and I enjoy sharing my experience
+            with you all to make your edits simple and effective.
+            <br><br>
+            I kindly request you to follow me on Instagram, and please don’t
+            unfollow me after getting assets from me.
+            <br><br>
+            Scroll down to get video editing assets.
+            <br><br>
+            Thank you all. Have a great day 😊
+          </div>
+          <div class="swipe-text">⬅ Swipe left for Telugu and Hindi</div>
+        </div>
+
+        <!-- TELUGU -->
+        <div class="about-slide">
+          <div class="para-box">
+            హాయ్, నా పేరు భానుప్రకాశ్ సొంట్యానా. నాకు 23 సంవత్సరాలు, నేను
+            నర్సీపట్నం నుండి వచ్చాను. నాకు వీడియో ఎడిటింగ్ చాలా ఇష్టం,
+            అలాగే మీ ఎడిట్స్‌ను సులభంగా మరియు ప్రభావవంతంగా చేయడానికి
+            నా అనుభవాన్ని మీతో పంచుకోవడం నాకు ఆనందంగా ఉంటుంది.
+            <br><br>
+            దయచేసి నా ఇన్‌స్టాగ్రామ్ పేజీని ఫాలో అవ్వండి. నా దగ్గర నుంచి
+            అసెట్స్ తీసుకున్న తర్వాత దయచేసి అన్‌ఫాలో చేయకండి.
+            <br><br>
+            వీడియో ఎడిటింగ్ అసెట్స్ కోసం ఎడమ వైపు స్వైప్ చేయండి.
+            <br><br>
+            అందరికీ ధన్యవాదాలు. మీ రోజు శుభంగా గడవాలి 😊
+          </div>
+          <div class="swipe-text">⬅ Swipe left for Hindi, right for English ➡</div>
+        </div>
+
+        <!-- HINDI -->
+        <div class="about-slide">
+          <div class="para-box">
+            Hi, mera naam Bhanuprakash Sontyana hai. Main 23 saal ka hoon aur
+            main Narsipatnam se hoon. Mujhe video editing bahut pasand hai,
+            aur main apna experience aap sab ke saath share karta hoon
+            taaki aapki editing simple aur effective ho.
+            <br><br>
+            Kripya mujhe Instagram par follow karein aur assets lene ke baad
+            unfollow na karein.
+            <br><br>
+            Video editing assets ke liye left swipe karein.
+            <br><br>
+            Aap sab ka dhanyavaad. Aapka din shubh ho 😊
+          </div>
+          <div class="swipe-text">➡ Swipe right for Telugu and English</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ASSETS -->
+  <div class="section">
+    <h3>🎬 Videos</h3>
+    <button onclick="openLink('video123','https://drive.google.com/')">Open Videos</button>
+  </div>
+
+  <div class="section">
+    <h3>🎧 Audios</h3>
+    <button onclick="openLink('audio123','https://drive.google.com/')">Open Audios</button>
+  </div>
+
+  <div class="section">
+    <h3>🖼 Images</h3>
+    <button onclick="openLink('image123','https://drive.google.com/')">Open Images</button>
+  </div>
+
+<script>
+let slider = document.getElementById("slider");
+let wrapper = document.getElementById("sliderWrapper");
+let index = 0;
+let startX = 0;
+let isDown = false;
+
+function moveSlider() {
+  slider.style.transform = `translateX(-${index * 100}%)`;
+}
+
+/* Mobile swipe */
+wrapper.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+wrapper.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50 && index < 2) index++;
+  if (endX - startX > 50 && index > 0) index--;
+  moveSlider();
+});
+
+/* Desktop drag */
+wrapper.addEventListener("mousedown", e => {
+  isDown = true;
+  startX = e.clientX;
+});
+
+wrapper.addEventListener("mouseup", e => {
+  if (!isDown) return;
+  let endX = e.clientX;
+  if (startX - endX > 50 && index < 2) index++;
+  if (endX - startX > 50 && index > 0) index--;
+  moveSlider();
+  isDown = false;
+});
+
+function openLink(pass, link) {
+  let input = prompt("Enter password:");
+  if (input === pass) window.open(link, "_blank");
+  else alert("Wrong password ❌");
+}
+
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  menu.style.display =
+    menu.style.display === "block" ? "none" : "block";
+}
+
+window.addEventListener("scroll", () => {
+  document.querySelector(".navbar")
+    .classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
+
+
+</body>
+</html>
