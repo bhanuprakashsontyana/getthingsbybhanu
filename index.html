@@ -127,7 +127,6 @@ body {
 .container {
   max-width: 900px;
   margin: auto;
-  margin-top: 90px;
 }
 
 /* ===== ABOUT OUTER BOX ===== */
@@ -221,6 +220,36 @@ button {
 button:hover {
   background: #0ea5e9;
 }
+
+/* ===== MOBILE NAVBAR FIX ===== */
+@media (max-width: 768px) {
+
+  /* Navbar auto size */
+  .navbar {
+    height: 64px;          /* replace 80px only for mobile */
+    padding: 0 16px;       /* reduce side spacing */
+  }
+
+  /* Logo image resize */
+  .logo-img {
+    height: 44px;
+  }
+
+  /* Logo text auto scale */
+  .logo-text {
+    font-size: 1.2rem;
+    white-space: nowrap;   /* text break avvakunda */
+  }
+
+  /* Mobile menu position fix */
+  .mobile-menu {
+    top: 64px;             /* navbar height match */
+    right: 16px;
+  }
+
+}
+
+  
 </style>
 </head>
 <body>
@@ -398,3 +427,4 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
+
