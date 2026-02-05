@@ -81,6 +81,8 @@
   color: #38bdf8;
 }
 
+
+
 /* MOBILE MENU */
 .mobile-menu {
   display: none;
@@ -118,6 +120,8 @@
   margin-right: 30px;   /* 🔥 THIS moves it left */
 }
 }
+
+
 body {
   margin: 0;
   padding: 20px;
@@ -159,6 +163,15 @@ body {
   border-radius: 18px;
   padding: 16px;
   margin-bottom: 20px;
+  padding-bottom: 30px;
+}
+
+.about-box2 {
+  background: #020617;
+  border-radius: 18px;
+  padding: 16px;
+  margin-top: 20px;
+  padding-bottom: 1px;
 }
 
 /* Heading */
@@ -170,6 +183,12 @@ body {
 
 .about-box1 h2 {
   margin-top: 0;
+  text-align: center;
+  color: #38bdf8;
+}
+
+.about-box2 h2 {
+  margin-top: 20px;
   text-align: center;
   color: #38bdf8;
 }
@@ -201,6 +220,20 @@ body {
   flex: 1;  /* Grow to fill available space naturally */
   height: auto;  /* Key: allow content-driven height */
   box-sizing: border-box;
+}
+
+.para-box1 {
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+  padding: 30px 20px;
+  border-radius: 14px;
+  line-height: 1.6;
+  font-size: 16px;
+  border: 1px solid #38bdf8;
+  flex: 1;  /* Grow to fill available space naturally */
+  height: auto;  /* Key: allow content-driven height */
+  box-sizing: border-box;
+  margin-bottom: 30px;
 }
 
 /* Swipe text */
@@ -378,21 +411,25 @@ Let’s grow and create <strong>amazing edits together</strong>.
     </div>
   </div>
 
-  <!-- ASSETS -->
-  <div class="section">
+<div class="about-box2">
+    <h2 class="name-title">Editing Assets</h2>
+
+    <div class="para-box1">
     <h3>🎬 Videos</h3>
     <button onclick="openLink('video123','https://drive.google.com/')">Open Videos</button>
   </div>
 
-  <div class="section">
+  <div class="para-box1">
     <h3>🎧 Audios</h3>
     <button onclick="openLink('audio123','https://drive.google.com/')">Open Audios</button>
   </div>
 
-  <div class="section">
+  <div class="para-box1">
     <h3>🖼 Images</h3>
     <button onclick="openLink('image123','https://drive.google.com/')">Open Images</button>
   </div>
+
+</div>
 
 <script>
 let slider = document.getElementById("slider");
@@ -458,48 +495,3 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
