@@ -437,31 +437,12 @@ window.addEventListener("scroll", () => {
     .classList.toggle("scrolled", window.scrollY > 50);
 });
 
-let sliderWrapper = document.getElementById("sliderWrapper");
-let slides = document.querySelectorAll(".about-slide");
-
-function updateAboutBoxHeight() {
-  // Get the active slide
-  let activeSlide = slides[index];
-  // Set about-box height to active slide height + padding
-  let aboutBox = document.querySelector(".about-box");
-  aboutBox.style.height = activeSlide.offsetHeight + 48 + "px"; // 48 = padding top + bottom
-}
-
-// Call it initially
-updateAboutBoxHeight();
-
-// Call it every time slider moves
-function moveSlider() {
-  slider.style.transform = `translateX(-${index * 100}%)`;
-  updateAboutBoxHeight(); // adjust height for active slide
-}
-  
 </script>
 
 
 </body>
 </html>
+
 
 
 
