@@ -79,19 +79,30 @@
 
 
 
-/* MOBILE MENU */
+/* MOBILE MENU – SMOOTH SLIDE */
 .mobile-menu {
-  display: none;
   position: fixed;
-  margin-top: 5px;
-  top: 80px;
-  right: 20px;
+  top: 64px;                 /* mobile navbar height */
+  right: 16px;
   background: #020617;
   border: 1px solid #38bdf8;
   border-radius: 14px;
   padding: 10px 0;
   z-index: 999;
+
+  /* animation part */
+  transform: translateY(-10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
+
+.mobile-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
 .mobile-menu a {
   display: block;
@@ -113,7 +124,7 @@
   .hamburger {
   display: block;
   font-size: 20px;
-  margin-right: 30px;   /* 🔥 THIS moves it left */
+  margin-right: 10px;   /* 🔥 THIS moves it left */
 }
 }
 
@@ -310,7 +321,7 @@ button:hover {
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar">
+<nav class="navbar" id="home">
   <div class="nav-left">
     <img src="https://res.cloudinary.com/dmbkwuksx/image/upload/v1770224518/image_phtfmj.png" alt="Logo" class="logo-img">
     <span class="logo-text">getthingsbybhanu</span>
@@ -338,11 +349,11 @@ button:hover {
 <div class="container">
 
   <!-- ABOUT SECTION -->
-   <div class="about-box1" id="home">
+   <div class="about-box1">
     <h2 class="name-title">Small Request</h2>
 
     <div class="para-box main-message">
-      Please <strong>don’t unfollow</strong> after getting assets. <strong>Thank you</strong>
+      Scroll down for assets. Please <strong>don’t unfollow</strong> after getting assets. <strong>Thank you</strong>
     </div>
    </div>
 
@@ -503,15 +514,28 @@ function openLink(pass, link) {
 
 function toggleMenu() {
   const menu = document.getElementById("mobileMenu");
-  menu.style.display =
-    menu.style.display === "block" ? "none" : "block";
+  menu.classList.toggle("active");
 }
+
 
 window.addEventListener("scroll", () => {
   document.querySelector(".navbar")
     .classList.toggle("scrolled", window.scrollY > 50);
 });
   
+document.addEventListener("click", function (e) {
+  const menu = document.getElementById("mobileMenu");
+  const hamburger = document.querySelector(".hamburger");
+
+  if (
+    menu.classList.contains("active") &&
+    !menu.contains(e.target) &&
+    !hamburger.contains(e.target)
+  ) {
+    menu.classList.remove("active");
+  }
+});
+
 </script>
 
 
