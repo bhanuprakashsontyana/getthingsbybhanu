@@ -386,6 +386,11 @@ let isDown = false;
 
 function moveSlider() {
   slider.style.transform = `translateX(-${index * 100}%)`;
+
+  // 🔥 auto adjust about-box height
+  const activeSlide = slider.children[index];
+  const aboutBox = document.querySelector(".about-box");
+  aboutBox.style.height = activeSlide.offsetHeight + 70 + "px";
 }
 
 /* Mobile swipe */
@@ -436,6 +441,7 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
+
 
 
 
