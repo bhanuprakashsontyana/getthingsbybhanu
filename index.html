@@ -251,31 +251,47 @@ button:hover {
 
 /* ===== MOBILE NAVBAR FIX ===== */
 @media (max-width: 768px) {
-
-  /* Navbar auto size */
   .navbar {
-    height: 64px;          /* replace 80px only for mobile */
-    padding: 0 16px;       /* reduce side spacing */
+    height: 64px;
+    padding: 0 16px;
   }
-
-  /* Logo image resize */
+  
   .logo-img {
     height: 35px;
   }
-
-  /* Logo text auto scale */
+  
   .logo-text {
     font-size: 1rem;
-    white-space: nowrap;   /* text break avvakunda */
+    white-space: nowrap;
   }
-
-  /* Mobile menu position fix */
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .hamburger {
+    display: block;
+    font-size: 20px;
+    margin-right: 30px;
+  }
+  
   .mobile-menu {
-    top: 64px;             /* navbar height match */
+    top: 64px;
     right: 16px;
   }
-
+  
+  /* 👇 BACKGROUND FIX */
+  .para-box {
+    background: rgba(255, 255, 255, 0.20) !important;
+    padding: 30px 20px !important;
+    font-size: 14px !important;
+  }
+  
+  .about-box {
+    padding: 16px;
+  }
 }
+
 
   
 </style>
@@ -286,7 +302,7 @@ button:hover {
 <nav class="navbar">
   <div class="nav-left">
     <img src="https://res.cloudinary.com/dmbkwuksx/image/upload/v1770224518/image_phtfmj.png" alt="Logo" class="logo-img">
-    <span class="logo-text">Bhanuprakash</span>
+    <span class="logo-text">bhanuprakash</span>
   </div>
 
   <ul class="nav-links">
@@ -464,6 +480,7 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
+
 
 
 
