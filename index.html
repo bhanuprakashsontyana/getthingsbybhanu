@@ -268,7 +268,7 @@ button:hover {
 <nav class="navbar">
   <div class="nav-left">
     <img src="https://res.cloudinary.com/dmbkwuksx/image/upload/v1770224518/image_phtfmj.png" alt="Logo" class="logo-img">
-    <span class="logo-text">Bhanuprakash</span>
+    <span class="logo-text">bhanuprakash</span>
   </div>
 
   <ul class="nav-links">
@@ -437,11 +437,42 @@ window.addEventListener("scroll", () => {
     .classList.toggle("scrolled", window.scrollY > 50);
 });
 
+let slides = document.querySelectorAll(".about-slide");
+let aboutBox = document.querySelector(".about-box");
+
+// Function to update about-box height
+function updateAboutBoxHeight() {
+  // Get computed height of active slide
+  let activeSlide = slides[index];
+  // temporarily make it visible to measure height if needed
+  activeSlide.style.display = "block";
+  let slideHeight = activeSlide.scrollHeight;
+  // reset other slides to original (flex)
+  slides.forEach((s, i) => {
+    if (i !== index) s.style.display = "none";
+  });
+  aboutBox.style.height = slideHeight + 24 + "px"; // 24 = padding
+}
+
+// Initialize first slide
+updateAboutBoxHeight();
+
+// Modify moveSlider to call updateAboutBoxHeight
+function moveSlider() {
+  slider.style.transform = `translateX(-${index * 100}%)`;
+  // update height dynamically
+  updateAboutBoxHeight();
+}
+
+// Optional: on window resize
+window.addEventListener("resize", updateAboutBoxHeight);
+  
 </script>
 
 
 </body>
 </html>
+
 
 
 
