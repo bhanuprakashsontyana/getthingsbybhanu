@@ -138,7 +138,16 @@ body {
   background: #020617;
   border-radius: 18px;
   padding: 24px;
-  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  height: auto;  /* Ensure each slide sizes naturally */
+  display: flex;
+  flex-direction: column;
 }
   
 .about-box .para-box {
@@ -190,6 +199,9 @@ body {
   line-height: 1.6;
   font-size: 16px;
   border: 1px solid #38bdf8;
+  flex: 1;  /* Grow to fill available space naturally */
+  height: auto;  /* Key: allow content-driven height */
+  box-sizing: border-box;
 }
 
 /* Swipe text */
@@ -391,6 +403,10 @@ let isDown = false;
 
 function moveSlider() {
   slider.style.transform = `translateX(-${index * 100}%)`;
+  
+  // Force reflow for height adjustment
+  wrapper.scrollTop = wrapper.scrollTop;
+  void wrapper.offsetHeight;  // Triggers recalculation
 }
 
 /* Mobile swipe */
@@ -442,6 +458,7 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
+
 
 
 
